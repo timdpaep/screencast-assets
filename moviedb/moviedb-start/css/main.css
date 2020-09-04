@@ -1,0 +1,45 @@
+/**
+ * The main.css styles
+ */
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #222;
+    font-size: 12px;
+}
+
+#app {
+    height: 100%;
+    position: relative;
+}
+
+/**
+ * Components
+ */
+
+#moviesList {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-row-gap: 1rem;
+}
+
+#moviesList .movie {
+    text-align: center;
+}
+#moviesList .moviePoster.dislike {
+    opacity: 0.3;
+}
+
+#moviesList .moviePoster.like {
+    opacity: 1;
+}
+
+.moviePoster {
+    box-shadow: 0 0 35px black;
+}
