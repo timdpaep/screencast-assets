@@ -1,6 +1,6 @@
 /**
  * History API
- * More Information: https://developer.mozilla.org/en-US/docs/Web/API/about
+ * More Information: https://developer.mozilla.org/en-US/docs/Web/API/History_API
  */
 
 // We did in browser
@@ -16,6 +16,7 @@ window.history.length; // amount of pages in browser*/
 //
 // Go back and forth
 // history.pushState(null, null, "about");
+// history.replaceState(null, null, "about-replaced");
 
 // triggers when we open up a page
 // window.addEventListener('popstate', (e) => console.log(e));
