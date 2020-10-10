@@ -22,7 +22,8 @@ button {
   outline: none;
 }
 
-button:hover {
+button:hover,
+button.selected {
   background-color: rgba(255, 255, 255, 1);
   color: black;
 }
@@ -52,3 +53,32 @@ button:active {
   background-color: #DDD;
 }
 
+/**
+ * History Example
+ */
+
+#contentContainer {
+  padding: 30px;
+  border: 1px solid #FFF;
+}
+
+#contentContainer .hide {
+  display: none;
+}
+
+/**
+ * Form Data Example
+ */
+
+.formElement {
+  margin-bottom: 20px;
+}
+
+.formElement label {
+  margin-right: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 5px;
+}

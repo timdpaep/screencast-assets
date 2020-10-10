@@ -1,5 +1,6 @@
 /**
  * The Webaudio API
+ * More Information: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
  */
 
 /**
@@ -19,62 +20,82 @@ const sliderVolume = document.getElementById("sliderVolume");
  * Create the audio context
  */
 
-const audioContext = new AudioContext();
+// FIX The AudioContext was not allowed to start
+// https://developers.google.com/web/updates/2017/09/autoplay-policy-changes#webaudio
 
 /**
- * The origins of sound, an oscillator
+ * Oscillator
  */
 
-// create a new oscillator
-const oscillator = audioContext.createOscillator();
-oscillator.type = "sine";
-oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-oscillator.connect(audioContext.destination);
+let oscillator = null;
+let oscAudioContext = null;
 
-// connect oscillator to our speakers
-btnStartOscillator.addEventListener('click', async () => {
-  if(audioContext.state !== 'running') { await audioContext.resume(); }
-  oscillator.start()
-});
-btnStartOscillator.addEventListener('click', () => oscillator.stop());
+const initOscAudioContext = () => {
+  if(!oscAudioContext) oscAudioContext = new AudioContext();
+  if(!oscillator) {
+    oscillator = oscAudioContext.createOscillator();
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(440, oscAudioContext.currentTime);
+  }
+}
 
-// Update the current slider value (each time you drag the slider handle)
-sliderFreq.addEventListener('input', function() {
-  oscillator.frequency.setValueAtTime(this.value, audioContext.currentTime);
-});
+const startOscillator = async () => {
+  initOscAudioContext();
+  oscillator.start();
+  oscillator.connect(oscAudioContext.destination);
+}
+
+const stopOscillator = async () => {
+  oscillator.disconnect(oscAudioContext.destination);
+  oscillator = null;
+  oscAudioContext = null;
+}
+
+const changeFreq = (e) => {
+  oscillator.frequency.setValueAtTime(e.target.value, oscAudioContext.currentTime);
+}
+
+btnStartOscillator.addEventListener('click', startOscillator);
+btnStopOscillator.addEventListener('click', stopOscillator);
+sliderFreq.addEventListener('input', changeFreq); // Update the current slider value (each time you drag the slider handle)
 
 /**
  * Playing a file
  */
 
-const audio = new Audio('./audio/file-example.wav');
-const source = audioContext.createMediaElementSource(audio);
-const gainNode = audioContext.createGain();
-const panner = new StereoPannerNode(audioContext, { pan: 0 });
+let audioContext = null;
+let audio = null;
+let gainNode = null;
+let pannerNode = null;
+let audioSource = null;
 
-// connecting the stuff
-source.connect(gainNode)
-      .connect(panner)
-      .connect(audioContext.destination);
+const initAudioContext = () => {
+  if(!audioContext) audioContext = new AudioContext();
+  if(!audio) audio = new Audio('./audio/file-example.wav');
+  if(!gainNode) gainNode = audioContext.createGain(); // create gain
+  if(!pannerNode) pannerNode = new StereoPannerNode(audioContext, { pan: 0 }); // create panner
+  if(!audioSource) {
+    audioSource = audioContext.createMediaElementSource(audio); // get audiosource
+    audioSource.connect(gainNode) // connecting the dots
+               .connect(pannerNode)
+               .connect(audioContext.destination);
+  }
+}
 
-// btnStartAudio
-btnStartAudio.addEventListener('click', async () => {
-  if(audioContext.state !== 'running') { await audioContext.resume(); }
-  audio.play();
-});
+const startAudio = async () => {
+  initAudioContext();
+  audio.play(); // play the audio
+}
 
-// btnStopAudio
-btnStopAudio.addEventListener('click', () => {
+const stopAudio = async() => {
   audio.pause();
   audio.currentTime = 0;
-});
+}
 
-// sliderVolume
-sliderVolume.addEventListener('input', function() {
-  gainNode.gain.value = this.value;
-});
+const changeVolume = (e) => gainNode.gain.value = e.target.value;
+const pan = (e) => pannerNode.pan.value = e.target.value;
 
-// sliderPanner
-sliderPanner.addEventListener('input', function() {
-  panner.pan.value = this.value;
-});
+btnStartAudio.addEventListener('click', startAudio);
+btnStopAudio.addEventListener('click', stopAudio);
+sliderVolume.addEventListener('input', changeVolume);
+sliderPanner.addEventListener('input', pan);
