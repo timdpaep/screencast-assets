@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+
+*,
+*:after,
+*::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--color-white);
+	font-family: 'Source Sans Pro', sans-serif;
+	color: var(--color-firebase-navy);
+}
+
+button {
+	border: none;
+	outline: none;
+	background: transparent;
+}
+
+a {
+	color: var(--color-firebase-navy);
+	text-decoration: none;
+}
+
+h2 {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	color: var(--primary-color);
+	font-weight: 300;
+}
+
+.hide {
+	display: none !important;
+}
+
+/**
+ * Typo
+ */
+
+.center-text {
+	text-align: center;
+}
+
+/**
+ * Login
+ */
+
+#loginWrapper {
+	display: flex;
+	height: 100vh;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+#loginContainer {
+	padding-top: 50px;
+	padding-bottom: 90px;
+	width: 390px;
+	background-color: var(--color-white);
+}
+
+#loginContainer form {
+	width: 100%;
+}
+
+#loginContainer form h1 {
+	color: var(--color-firebase-navy);
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+#loginContainer form .formElement {
+	margin-bottom: 1rem;
+}
+
+#loginContainer form .formElement input {
+	background-color: var(--color-firebase-grey);
+	border: 1px solid transparent;
+	border-radius: 3px;
+	padding: 0 20px 0 38px;
+	width: 100%;
+	font-size: 18px;
+	height: 60px;
+	color: var(--color-firebase-navy);
+}
+
+#loginContainer form .formElement input:focus {
+	outline-color: var(--color-firebase-yellow);
+}
+
+/* LOGIN FORM BUTTONS */
+
+#loginContainer form button.formButton {
+	color: #fff;
+	line-height: 1.2;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	width: 100%;
+	height: 60px;
+	background-color: var(--color-firebase-blue);
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#loginContainer form .error-container {
+	color: var(--color-firebase-red);
+	margin-bottom: 1rem;
+}
+
+#loginContainer form button.formButton svg {
+	margin-right: 20px;
+}
+
+#loginContainer form button.formButton.firebase-blue {
+	background-color: var(--color-firebase-blue);
+}
+
+#loginContainer form button.formButton.firebase-yellow {
+	background-color: var(--color-firebase-yellow);
+}
+
+#loginContainer form button.formButton.alt-login {
+	height: 40px;
+}
+
+#loginContainer form a {
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+/**
+ * Dashboard
+ */
+
+#dashboardWrapper header {
+	display: flex;
+	justify-content: space-between;
+	height: 70px;
+	background-color: var(--color-firebase-blue);
+	padding: 25px 20px;
+}
+
+#dashboardWrapper header .logo {
+	color: var(--color-white);
+	font-size: 1.3rem;
+}
+
+#dashboardWrapper header ul {
+	display: flex;
+	list-style-type: none;
+}
+
+#dashboardWrapper header li {
+	margin-right: 20px;
+}
+
+#dashboardWrapper header li a {
+	color: var(--color-white);
+}
+
+#dashboardWrapper header a.logout {
+	color: var(--color-white);
+	border: 1px solid var(--color-white);
+	border-radius: 2px;
+	padding: 10px;
+}
+
+main {
+	padding: 30px 0;
+}
+
+article {
+	margin-bottom: 30px;
+}
+
+.inner-article {
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.article-head {
+	position: relative;
+	height: 200px;
+}
+
+.article-head .btn-edit {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	background-color: var(--color-firebase-blue);
+	color: var(--color-white);
+	padding: 10px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.article-head .btn-remove {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: var(--color-firebase-red);
+	color: var(--color-white);
+	padding: 10px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.article-head .btn-edit.save {
+	background-color: var(--color-firebase-blue);
+}
+
+.article-head .price {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: var(--color-firebase-yellow);
+	color: var(--color-navy);
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.article-head img {
+	object-fit: cover;
+	transition: all 0.5s;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+}
+
+.article-head img:hover {
+	opacity: 1;
+}
+
+.article-content {
+	padding: 10px
+}
+
+.article-content .input-edit {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.article-content .input-edit input {
+	padding: 10px;
+	width: 80%;
+}
+
+.article-content .input-edit .btn-save {
+	background-color: var(--color-firebase-yellow);
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css">
+  <title>Login - Firebase Will Rule The World!</title>
+</head>
+<body>
+  <div id="loginWrapper">
+    <div id="loginContainer">
+      <form>
+        <h1>Firebase Login</h1>
+        <div class="error-container hide"></div>
+        <div class="formElement">
+          <input type="text" name="email" placeholder="E-mail">
+        </div>
+        <div class="formElement">
+          <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="formElement">
+          <button id="btnLogin" class="formButton firebase-blue">Login</button>
+        </div>
+        <div class="formElement center-text">
+          OR
+        </div>
+        <div class="formElement">
+          <button id="btnLoginGoogle" class="formButton firebase-yellow alt-login">
+            <i class="fab fa-google"></i>Login with Google
+          </button>
+        </div>
+        <div class="formElement center-text">
+          <a href="register.html" class="link-register">register</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+  <script type="module" src="./scripts/login.js" defer></script>
+</body>
+</html>

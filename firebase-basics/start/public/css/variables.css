@@ -1,0 +1,16 @@
+:root {
+    --color-black: #000;
+    --color-white: #FFF;
+    --color-purple: #403866;
+    --color-grey: #e6e6e6;
+    --color-lightpurple: #827ffe;
+
+    --color-firebase-yellow: #FFCA28;
+    --color-firebase-amber: #FFA000;
+    --color-firebase-orange: #F57C00;
+    --color-firebase-blue: #039BE5;
+    --color-firebase-navy: #2C384A;
+    --color-firebase-coral: #FF8A65;
+    --color-firebase-grey: #ECEFF1;
+    --color-firebase-red: #dc4f3f;
+}

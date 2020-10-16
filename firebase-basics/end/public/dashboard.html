@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/styles.css">
+	<title>Dashboard - Firebase Will Rule The World!</title>
+</head>
+
+<body>
+	<div id="appWrapper" class="hide">
+		<div id="dashboardWrapper">
+			<header>
+        <div class="logo">Firebase Demo</div>
+				<nav>
+					<ul>
+						<li>
+							<a id="btnAddProductCard" href="#">Add Product Card</a>
+						</li>
+						<li>
+							<a id="btnLogout" class="logout" href="#">Logout</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<main>
+				<div class="container-fluid">
+					<div id="articles-container" class="row"></div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<script src="./vendor/fakerjs/faker.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+	<script type="module" src="./scripts/dashboard.js"></script>
+</body>
+
+</html>
