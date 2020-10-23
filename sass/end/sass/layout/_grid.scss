@@ -1,0 +1,8 @@
+//
+// Grid
+//
+
+@for $i from 1 through 12 {
+   $width: percentage($i / 12);
+   .col-#{$i} { flex-basis: $width; }
+}

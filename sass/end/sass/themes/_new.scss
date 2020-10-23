@@ -1,0 +1,14 @@
+//
+// Default Theme
+//
+
+@use '../abstracts/variables' with (
+  $colors: (
+    color1: #EFBC9B,
+    color2: #EE92C2,
+    color3: #9D6A89,
+    color4: #725D68,
+    color5: #A8B4A5
+  )
+);
+

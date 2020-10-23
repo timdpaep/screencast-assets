@@ -1,0 +1,17 @@
+//
+// Media Queries
+//
+
+@use '../abstracts/variables' as vars;
+
+@mixin small {
+  @media (min-width: #{vars.$small-width}) and (max-width: #{vars.$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{vars.$large-width}) {
+    @content;
+  }
+}

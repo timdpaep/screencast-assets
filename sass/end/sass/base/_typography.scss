@@ -1,0 +1,10 @@
+//
+// Typography
+//
+
+@use '../abstracts/variables' as vars;
+
+body {
+  font-family: vars.$text-font;
+  color: map-get($map: vars.$secondary-colors, $key: black);
+}

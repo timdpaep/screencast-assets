@@ -1,0 +1,32 @@
+//
+// The Mixins
+//
+
+@mixin linearGradient($degree, $from, $to) {
+   background-image: linear-gradient($degree, $from, $to);
+}
+
+@mixin circle($width, $type, $color) {
+   height: $width;
+   width: $width;
+   background-color: $color;
+   border-radius: $width / 2;
+}
+
+@mixin triangle($width, $type, $color) {
+   width: 0;
+   height: 0;
+   border-left: $width / 2 solid transparent;
+   border-right: $width / 2 solid transparent;
+   border-bottom: $width / 2 solid $color;
+}
+
+@mixin shape($width, $type, $color) {
+   @if $type == circle { @include circle($width, $type, $color) }
+   @if $type == triangle { @include triangle($width, $type, $color) }
+   @else {
+      height: $width;
+      width: $width;
+      background-color: $color;
+   }
+}

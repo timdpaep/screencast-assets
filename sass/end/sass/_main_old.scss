@@ -1,0 +1,210 @@
+/**
+ * Reset
+ */
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+/**
+ * Fonts
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;700&display=swap');
+
+/**
+ * Variables
+ */
+
+$secondary-colors: (
+  white: #FFFFFF,
+  black: #000000,
+);
+
+$colors: (
+  color1: #8783D1,
+  color2: #AA9ABA,
+  color3: #BFA4A4,
+  color4: #D1ABAD,
+  color5: #E3B9BC
+);
+
+$text-font: 'Open Sans', sans-serif;
+$logo-font: 'Lobster', cursive;
+
+/**
+ * Base
+ */
+
+body {
+  background-color: map-get($map: $secondary-colors, $key: white);
+  font-family: $text-font;
+  color: map-get($map: $secondary-colors, $key: black);
+}
+
+a {
+   text-decoration: none;
+}
+
+/**
+ * Helpers
+ */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/**
+ * Mixins
+ */
+
+@mixin linearGradient($degree, $from, $to) {
+   background-image: linear-gradient($degree, $from, $to);
+}
+
+@mixin circle($width, $type, $color) {
+   height: $width;
+   width: $width;
+   background-color: $color;
+   border-radius: $width / 2;
+}
+
+@mixin triangle($width, $type, $color) {
+   width: 0;
+   height: 0;
+   border-left: $width / 2 solid transparent;
+   border-right: $width / 2 solid transparent;
+   border-bottom: $width / 2 solid $color;
+}
+
+@mixin shape($width, $type, $color) {
+   @if $type == circle { @include circle($width, $type, $color) }
+   @if $type == triangle { @include triangle($width, $type, $color) }
+   @else {
+      height: $width;
+      width: $width;
+      background-color: $color;
+   }
+}
+
+/**
+ * Functions
+ */
+
+@function pxtorem($px) {
+   @return ($px/16)+rem;
+}
+
+/**
+ * Grid Example
+ */
+
+@for $i from 1 through 12 {
+   $width: percentage($i / 12); // https://sass-lang.com/documentation/modules/math
+   .col-#{$i} { flex-basis: $width; }
+}
+
+/**
+ * Media Query
+ */
+
+$small-width: 768px;
+$large-width: 1024px;
+
+@mixin small {
+  @media (min-width: #{$small-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+/**
+ * Extends/Inheritance
+ */
+
+%flex-center-wrap-column {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   flex-wrap: wrap;
+   flex-direction: column;
+}
+
+/**
+ * Header
+ */
+
+header {
+   #navWrapper {
+      display: flex;
+      justify-content: space-between;
+      height: pxpxtorem(70);
+      background-color: map-get($map: $colors, $key: color1);
+      color: map-get($map: $secondary-colors, $key: white);
+      padding: 25px 20px;
+
+      .logo {
+         font-size: 1rem;
+         font-family: $logo-font;
+      }
+      @include small { .logo { font-size: 1.3rem;  } }
+
+      ul {
+         display: flex;
+         list-style-type: none;
+         li {
+            margin-right: pxtorem(20);
+            a {
+               color: map-get($map: $secondary-colors, $key: white);
+               &:hover { font-weight: 700; }
+            }
+         }
+      }
+   }
+   #heroWrapper {
+      height: 500px;
+      @include linearGradient(
+         90deg,
+         map-get($map: $colors, $key: color3),
+         map-get($map: $colors, $key: color2)
+      );
+      .hero-content-container {
+         @extend %flex-center-wrap-column;
+         .hero-text {
+            width: 50%;
+            @include textAlign(center);
+            font-size: 3rem;
+            margin-bottom: pxtorem(50);
+         }
+         .hero-shape {
+            @include shape(100px, circle, map-get($map: $colors, $key: color1));
+         }
+      }
+   }
+}
+
+/**
+ * Main
+ */
+
+#colorBlocks {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   .color-block {
+      // flex-basis: 20%;
+      height: pxtorem(150);
+   }
+   @each $key, $color in $colors {
+      .#{$key} { background-color: $color; }
+   }
+}
