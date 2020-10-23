@@ -1,4 +1,13 @@
 /**
+ * Import modules
+ */
+
+// More on math: https://sass-lang.com/documentation/modules/math
+@use "sass:math";
+// More on map: https://sass-lang.com/documentation/modules/map
+@use "sass:map";
+
+/**
  * Reset
  */
 
@@ -39,9 +48,9 @@ $logo-font: 'Lobster', cursive;
  */
 
 body {
-  background-color: map-get($map: $secondary-colors, $key: white);
+  background-color: map.get($map: $secondary-colors, $key: white);
   font-family: $text-font;
-  color: map-get($map: $secondary-colors, $key: black);
+  color: map.get($map: $secondary-colors, $key: black);
 }
 
 a {
@@ -67,6 +76,7 @@ a {
 @mixin circle($width, $type, $color) {
    height: $width;
    width: $width;
+   @debug "The width of the circle is: #{$width}";
    background-color: $color;
    border-radius: $width / 2;
 }
@@ -102,7 +112,7 @@ a {
  */
 
 @for $i from 1 through 12 {
-   $width: percentage($i / 12); // https://sass-lang.com/documentation/modules/math
+   $width: math.percentage($i / 12); // https://sass-lang.com/documentation/modules/math
    .col-#{$i} { flex-basis: $width; }
 }
 
@@ -147,9 +157,9 @@ header {
    #navWrapper {
       display: flex;
       justify-content: space-between;
-      height: pxpxtorem(70);
-      background-color: map-get($map: $colors, $key: color1);
-      color: map-get($map: $secondary-colors, $key: white);
+      height: pxtorem(70);
+      background-color: map.get($map: $colors, $key: color1);
+      color: map.get($map: $secondary-colors, $key: white);
       padding: 25px 20px;
 
       .logo {
@@ -164,7 +174,7 @@ header {
          li {
             margin-right: pxtorem(20);
             a {
-               color: map-get($map: $secondary-colors, $key: white);
+               color: map.get($map: $secondary-colors, $key: white);
                &:hover { font-weight: 700; }
             }
          }
@@ -174,19 +184,18 @@ header {
       height: 500px;
       @include linearGradient(
          90deg,
-         map-get($map: $colors, $key: color3),
-         map-get($map: $colors, $key: color2)
+         map.get($map: $colors, $key: color3),
+         map.get($map: $colors, $key: color2)
       );
       .hero-content-container {
          @extend %flex-center-wrap-column;
          .hero-text {
             width: 50%;
-            @include textAlign(center);
             font-size: 3rem;
             margin-bottom: pxtorem(50);
          }
          .hero-shape {
-            @include shape(100px, circle, map-get($map: $colors, $key: color1));
+            @include shape(100px, circle, map.get($map: $colors, $key: color1));
          }
       }
    }

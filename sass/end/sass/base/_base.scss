@@ -3,9 +3,10 @@
 //
 
 @use '../abstracts/variables' as vars;
+@use 'sass:map';
 
 body {
-  background-color: map-get($map: vars.$secondary-colors, $key: white);
+  background-color: map.get($map: vars.$secondary-colors, $key: white);
 }
 
 a {

@@ -8,13 +8,15 @@
 @use '../abstracts/mediamixins' as media;
 @use '../abstracts/extends';
 
+@use 'sass:map';
+
 header {
    #navWrapper {
       display: flex;
       justify-content: space-between;
       height: func.pxtorem(30);
-      background-color: map-get($map: vars.$colors, $key: color1);
-      color: map-get($map: vars.$secondary-colors, $key: white);
+      background-color: map.get($map: vars.$colors, $key: color1);
+      color: map.get($map: vars.$secondary-colors, $key: white);
       padding: 25px 20px;
 
       .logo {
@@ -46,7 +48,7 @@ header {
             margin-right: func.pxtorem(20);
          }
          &__link {
-            color: map-get($map: vars.$secondary-colors, $key: white);
+            color: map.get($map: vars.$secondary-colors, $key: white);
             &:hover { font-weight: 700; }
             &--active {
                @extend .nav__link;
@@ -60,8 +62,8 @@ header {
       height: 500px;
       @include mix.linearGradient(
          90deg,
-         map-get($map: vars.$colors, $key: color3),
-         map-get($map: vars.$colors, $key: color2)
+         map.get($map: vars.$colors, $key: color3),
+         map.get($map: vars.$colors, $key: color2)
       );
       .hero-content-container {
          @extend %flex-center-wrap-column;
@@ -71,7 +73,7 @@ header {
             margin-bottom: func.pxtorem(50);
          }
          .hero-shape {
-            @include mix.shape(100px, circle, map-get($map: vars.$colors, $key: color1));
+            @include mix.shape(100px, circle, map.get($map: vars.$colors, $key: color1));
          }
       }
    }
