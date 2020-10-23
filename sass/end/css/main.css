@@ -363,7 +363,7 @@ body {
   color: #000000;
 }
 
-header #heroWrapper .hero-content-container {
+footer #footerWrapper, header #heroWrapper .hero-content-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -426,6 +426,10 @@ header #heroWrapper .hero-content-container .hero-shape {
   background-color: #EFBC9B;
 }
 
+footer #footerWrapper {
+  height: 200px;
+}
+
 .col-1 {
   flex-basis: 8.3333333333%;
 }
@@ -472,6 +476,16 @@ header #heroWrapper .hero-content-container .hero-shape {
 
 .col-12 {
   flex-basis: 100%;
+}
+
+.button {
+  border: none;
+  padding: 15px;
+  background-color: #EFBC9B;
+  text-transform: uppercase;
+}
+.button:hover {
+  background-color: #EE92C2;
 }
 
 #colorBlocks {
