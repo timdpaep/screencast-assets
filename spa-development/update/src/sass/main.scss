@@ -1,0 +1,31 @@
+$grey-color: grey;
+$white-color: white;
+
+@use './loader';
+
+body {
+	background-color: $grey-color;
+}
+
+#portal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+	& .activityindicator {
+		background-color: $white-color;
+		display: flex;
+		width: 100vw;
+		height: 100vh;
+		opacity: 0.5;
+		align-items: center;
+		justify-content: center;
+
+		&__loadingText {
+			font-size: 36px;
+		}
+	}
+}
+
+#portal {}

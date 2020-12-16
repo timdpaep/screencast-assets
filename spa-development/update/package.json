@@ -1,0 +1,31 @@
+{
+  "name": "spa-development",
+  "version": "1.0.0",
+  "description": "A Single Page Application",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "staticFiles": {
+    "staticPath": "public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.0",
+    "sass": "^1.28.0"
+  },
+  "dependencies": {
+    "firebase": "^8.0.0",
+    "navigo": "^7.1.2"
+  }
+}
