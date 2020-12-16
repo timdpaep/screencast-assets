@@ -5,7 +5,7 @@
 import Router from './Router';
 import initFirebase from './lib/Firebase';
 import Component from './lib/Component';
-import ActivityIndicator from './Components/ActivityIndicator';
+import ActivityIndicator from './lib/ActivityIndicator';
 
 class App {
   constructor(parent, portal) {
@@ -65,6 +65,10 @@ class App {
           .then((renderedComponent) => {
             this.clearContainer(this.portal);
             this.parent.appendChild(renderedComponent);
+          })
+          .catch((error) => {
+            console.error(error.message);
+            this.clearContainer(this.portal);
           });
       }
     }

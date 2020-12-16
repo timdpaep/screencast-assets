@@ -2,6 +2,8 @@
  * The Component definition
  */
 
+import Elements from './Elements';
+
 class Component {
   constructor({
     name, model, routerPath, props = null,
@@ -14,9 +16,7 @@ class Component {
   }
 
   createComponentContainer() {
-    const componentContainer = document.createElement('div');
-    componentContainer.setAttribute('id', `${this.name}Container`);
-    return componentContainer;
+    return Elements.createContainer({ id: `${this.name}Container` });
   }
 
   clearComponentContainer() {

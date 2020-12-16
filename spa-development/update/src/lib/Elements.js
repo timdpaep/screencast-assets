@@ -12,6 +12,13 @@ const Elements = {
     return button;
   },
 
+  createContainer({ id = '', className = '' }) {
+    const componentContainer = document.createElement('div');
+    if (id) componentContainer.setAttribute('id', id);
+    componentContainer.className = className;
+    return componentContainer;
+  },
+
   createHeader({ size = 1, textContent = '', className = '' }) {
     if (size < 0 || size > 6) return null;
     const header = document.createElement(`h${size}`);
