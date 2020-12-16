@@ -12,10 +12,20 @@ const Elements = {
     return button;
   },
 
-  createContainer({ id = '', className = '' }) {
+  createContainer({
+    id = '', className = '', children = [], innerHTML = '',
+  }) {
     const componentContainer = document.createElement('div');
     if (id) componentContainer.setAttribute('id', id);
     componentContainer.className = className;
+    componentContainer.innerHTML = innerHTML;
+    if (children.length) {
+      children.forEach((child) => {
+        if (child instanceof Element) {
+          componentContainer.appendChild(child);
+        }
+      });
+    }
     return componentContainer;
   },
 
