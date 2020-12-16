@@ -7,7 +7,8 @@ import Elements from './Elements';
 export default () => {
   // create a loading text element
   const loadingText = Elements.createContainer({
-    className: 'loader', innerHTML: 'Loading',
+    className: 'loader',
+    innerHTML: 'Loading',
   });
 
   // create the activity indicator
