@@ -13,20 +13,20 @@ const Elements = {
   },
 
   createContainer({
-    id = '', className = '', children = [], innerHTML = '',
+    className = '', id = '', innerHTML = '', children = [],
   }) {
-    const componentContainer = document.createElement('div');
-    if (id) componentContainer.setAttribute('id', id);
-    componentContainer.className = className;
-    componentContainer.innerHTML = innerHTML;
+    const container = document.createElement('div');
+    if (id) container.setAttribute('id', id);
+    container.className = className;
+    container.innerHTML = innerHTML;
     if (children.length) {
       children.forEach((child) => {
         if (child instanceof Element) {
-          componentContainer.appendChild(child);
+          container.appendChild(child);
         }
       });
     }
-    return componentContainer;
+    return container;
   },
 
   createHeader({ size = 1, textContent = '', className = '' }) {
@@ -43,6 +43,12 @@ const Elements = {
     a.target = target;
     a.textContent = textContent;
     return a;
+  },
+
+  createParagraph({ textContent }) {
+    const p = document.createElement('p');
+    p.textContent = textContent;
+    return p;
   },
 
   createList({ items = [], ordered = false }) {
@@ -65,12 +71,6 @@ const Elements = {
       list.appendChild(li);
     });
     return list;
-  },
-
-  createParagraph({ textContent = '' }) {
-    const p = document.createElement('p');
-    p.textContent = textContent;
-    return p;
   },
 };
 

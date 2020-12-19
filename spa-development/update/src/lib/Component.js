@@ -9,14 +9,16 @@ class Component {
     name, model, routerPath, props = null,
   }) {
     this.name = name;
-    this.routerPath = routerPath;
     this.model = model;
+    this.routerPath = routerPath;
     this.componentContainer = this.createComponentContainer();
     this.props = props;
   }
 
   createComponentContainer() {
-    return Elements.createContainer({ id: `${this.name}Container` });
+    return Elements.createContainer({
+      id: `${this.name}Container`,
+    });
   }
 
   clearComponentContainer() {

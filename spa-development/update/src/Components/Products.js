@@ -22,7 +22,7 @@ class ProductsComponent extends Component {
     const products = await Products.getAll();
     this.model.products = products.map((p) => ({
       textContent: p.productName,
-      onClick: () => { Router.getRouter().navigate(`/product/${p.id}`); },
+      onClick: () => Router.getRouter().navigate(`/product/${p.id}`),
     }));
   }
 
@@ -40,7 +40,7 @@ class ProductsComponent extends Component {
       }),
     );
 
-    // return the component container
+    // return the products container
     return this.componentContainer;
   }
 }

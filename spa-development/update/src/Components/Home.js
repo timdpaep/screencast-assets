@@ -18,8 +18,8 @@ class HomeComponent extends Component {
 
   incrementCounter() {
     this.model.counter += 1;
-    const counter = this.componentContainer.getElementsByClassName('counter');
-    counter[0].innerHTML = this.counterString(this.model.counter);
+    const counterElements = this.componentContainer.getElementsByClassName('counter');
+    counterElements[0].innerHTML = this.counterString(this.model.counter);
   }
 
   counterString(counter) {
@@ -30,7 +30,7 @@ class HomeComponent extends Component {
     // destructure model
     const { counter } = this.model;
 
-    // clear the component container
+    // clear our component container
     this.clearComponentContainer();
 
     // create a header
@@ -49,7 +49,7 @@ class HomeComponent extends Component {
       }),
     );
 
-    // return the home container
+    // return the componentContainer container
     return this.componentContainer;
   }
 }

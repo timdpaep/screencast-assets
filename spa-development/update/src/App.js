@@ -34,7 +34,7 @@ class App {
     // docs: https://github.com/krasimir/navigo
     Router.getRouter().on(
       routerPath,
-      async (params) => {
+      (params) => {
         this.showComponent({
           name,
           props: params,
@@ -45,19 +45,15 @@ class App {
 
   showComponent({ name, props }) {
     const foundComponent = this.components.find((component) => component.name === name);
-    if (foundComponent) {
-      // clear the parent container
-      this.clearContainer(this.parent);
 
-      // pass the properties
+    if (foundComponent) {
+      this.clearContainer(this.parent);
       if (props) foundComponent.props = props;
 
-      // if we have a sync renderer
       if (foundComponent.render) {
         this.parent.appendChild(foundComponent.render());
       }
 
-      // if we have an async renderer
       if (foundComponent.renderAsync) {
         this.portal.appendChild(ActivityIndicator());
         foundComponent

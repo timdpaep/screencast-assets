@@ -18,24 +18,21 @@ class ProductComponent extends Component {
   }
 
   async loadProduct(id) {
-    const product = await Products.getById(id);
-    this.model.product = product;
+    this.model.product = await Products.getById(id);
   }
 
   async renderAsync() {
-    // load products
     await this.loadProduct(this.props.id);
 
-    // destructure data
+    // destructure the data
     const {
       productName,
       productDescription,
     } = this.model.product;
+    console.log(this.componentContainer);
 
-    // clearing the
     this.clearComponentContainer();
 
-    // if we have products, render them out
     this.componentContainer.appendChild(
       Elements.createHeader({
         textContent: productName,
@@ -48,7 +45,7 @@ class ProductComponent extends Component {
       }),
     );
 
-    // return the product container
+    // return the jokes container
     return this.componentContainer;
   }
 }

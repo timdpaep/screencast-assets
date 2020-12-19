@@ -1,10 +1,12 @@
 $grey-color: grey;
+$black-color: black;
 $white-color: white;
 
-@use './loader';
+@use './loader.scss';
 
 body {
 	background-color: $grey-color;
+	color: $black-color;
 }
 
 #portal {
@@ -14,11 +16,11 @@ body {
 	z-index: 1;
 
 	& .activityindicator {
-		background-color: $white-color;
 		display: flex;
+		background-color: $black-color;
+		opacity: 0.5;
 		width: 100vw;
 		height: 100vh;
-		opacity: 0.5;
 		align-items: center;
 		justify-content: center;
 
@@ -27,5 +29,3 @@ body {
 		}
 	}
 }
-
-#portal {}

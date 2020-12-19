@@ -4,9 +4,8 @@ import { HomeComponent, ProductsComponent, ProductComponent } from './Components
 
 const initApp = () => {
   const appContainer = document.getElementById('appContainer');
-  const portalContainer = document.getElementById('portal');
-
-  const app = new App(appContainer, portalContainer);
+  const portal = document.getElementById('portal');
+  const app = new App(appContainer, portal);
 
   // add components to app
   app.addComponent(new HomeComponent());

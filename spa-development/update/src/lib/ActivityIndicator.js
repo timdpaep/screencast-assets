@@ -1,5 +1,5 @@
 /**
- * An Activity Indicator component
+ * An activity indicator component
  */
 
 import Elements from './Elements';
@@ -18,5 +18,6 @@ export default () => {
       loadingText,
     ],
   });
+
   return activityIndicator;
 };
