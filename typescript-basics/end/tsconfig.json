@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "removeComments": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "./src/declarations"
+  ]
+}

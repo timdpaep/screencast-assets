@@ -1,0 +1,20 @@
+{
+  "name": "typescript-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "check-ts": "tsc --noEmit ./src/index.ts",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "types.ts": "0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}
