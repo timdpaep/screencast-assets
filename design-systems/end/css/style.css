@@ -1,0 +1,388 @@
+/**
+ * A Design System Template
+ */
+
+/**
+ * Imports
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400');
+
+/**
+ * Design System Variables
+ */
+
+:root {
+  /* Define color as color */
+  --black: #000;
+  --white: #FFF;
+  --blue: #172c66;
+  --red: #FF5470;
+  --darkBlue: #001858;
+  --grey: #bfbfbf;
+  --softYellow: #fef6e4;
+  --pink: #f582ae;
+  --blueGreen: #8bd3dd;
+  --softBrown: #f3d2c1;
+
+  /* Color intentions */
+  --textColor: var(--blue);
+  --background: var(--softYellow);
+  --buttonTextColor: var(--darkBlue);
+  --danger: var(--red);
+  --headerBackground: var(--softBrown);
+  --footerBackground: var(--blue);
+  --cardBg: var(--softBrown);
+  --secondaryButtonTextColor: var(--blue);
+  --tertiaryButtonTextColor: var(--blue);
+
+  /* Typography */
+  --headingFont: 'Overpass', sans-serif;
+  --bodyFont: 'Overpass', sans-serif;
+  --baseFontSize: 100%;
+  --h1: 3.052rem;
+  --h2: 2.441rem;
+  --h3: 1.953rem;
+  --h4: 1.563rem;
+  --h5: 1.25rem;
+  --smallText: 0.8rem;
+
+  /* Styles */
+  --line: 1px solid var(--darkBlue);
+
+  /* Elevation */
+  --level-1: 0 1px 3px 0 rgba(0, 24, 88, 0.1), 0 1px 2px 0 rgba(0, 24, 88, 0.06);
+  --level-2: 0 4px 6px -1px rgba(0, 24, 88, 0.1), 0 2px 4px -1px rgba(0, 24, 88, 0.06);
+  --level-3: 0 10px 15px -3px rgba(0, 24, 88, 0.1), 0 4px 6px -2px rgba(0, 24, 88, 0.05);
+  --level-4: 0 20px 25px -5px rgba(0, 24, 88, 0.1), 0 10px 10px -5px rgba(0, 24, 88, 0.04);
+
+  /* Positioning */
+  --containerPadding: 2.5%;
+  --headerHeight: 3rem;
+  --borderRadius: 10px;
+}
+
+/**
+ * General
+ */
+
+html {
+  font-size: var(--baseFontSize);
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--textColor);
+}
+
+hr {
+  border: none;
+  border-top: var(--line);
+  margin-top: 3rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Header
+ */
+
+header {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: var(--darkBlue);
+  height: var(--headerHeight);
+  background: var(--headerBackground);
+  box-shadow: var(--level-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--containerPadding);
+}
+
+header nav a {
+  color: var(--darkBlue);
+  text-decoration: none;
+}
+
+header nav a+a {
+  margin-left: 20px;
+}
+
+.fake-logo {
+  font-size: var(--baseFontSize);
+  margin: 0;
+}
+
+/**
+ * Footer
+ */
+
+footer {
+  --footerTextColor: var(--lightGrey);
+  background: var(--footerBackground);
+  color: var(--softYellow);
+  padding: 2rem var(--containerPadding);
+  text-align: center;
+}
+
+footer a {
+  color: var(--footerTextColor);
+}
+
+footer p {
+  margin-bottom: 0px;
+  max-width: none;
+}
+
+/**
+ * Typography
+ */
+
+p {
+  margin-bottom: 1rem;
+  max-width: 40em;
+}
+
+blockquote {
+  margin: 10px;
+  padding: 2em;
+  background: var(--softBrown);
+  box-shadow: var(--level-2);
+}
+
+p a,
+blockquote a {
+  color: var(--textColor);
+  text-decoration: none;
+  border-bottom: 2px solid var(--blueGreen);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+small,
+.text_small {
+  font-size: var(--smallText);
+}
+
+/**
+ * Colors
+ */
+
+.color {
+  height: 100px;
+  border: var(--line);
+}
+
+/**
+ * Buttons
+ */
+
+/* Primary Button */
+
+button {
+  --buttonColor: var(--pink);
+
+  color: var(--buttonTextColor);
+  background-color: var(--buttonColor);
+  outline: none;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 25px;
+  cursor: pointer;
+  box-shadow: var(--level-1);
+  transition: 0.3s ease-in-out box-shadow;
+}
+
+button:hover {
+  box-shadow: var(--level-2);
+}
+
+button[disabled] {
+  opacity: 0.4;
+  cursor: initial;
+}
+
+button.cancel {
+  --buttonColor: var(--danger);
+  --buttonTextColor: var(--softYellow);
+}
+
+button.small {
+  font-size: var(--smallText);
+}
+
+/* Secondary Button */
+
+button.secondary-button {
+  --buttonColor: transparant;
+  --buttonTextColor: var(--secondaryButtonTextColor);
+  border: var(--line);
+}
+
+/* Tertiary Button */
+
+button.tertiary-button {
+  --buttonColor: transparant;
+  --buttonTextColor: var(--tertiaryButtonTextColor);
+  border: none;
+  text-decoration: underline;
+  box-shadow: none;
+}
+
+button.tertiary-button:hover {
+  box-shadow: none;
+}
+
+/**
+ * Forms & Inputs
+ */
+
+label {
+  display: block;
+  font-size: var(--smallText);
+}
+
+input,
+textarea,
+select {
+  padding: 8px 10px;
+  border: var(--line);
+  border-radius: 4px;
+  outline: none;
+}
+
+::placeholder {
+  color: var(--grey)
+}
+
+textarea {
+  width: 100%;
+  height: 5rem;
+}
+
+/**
+ * Card
+ */
+
+.card {
+  padding: 2em;
+  background: var(--cardBg);
+  box-shadow: var(--level-3);
+  border-radius: var(--borderRadius);
+}
+
+.card>*:first-child {
+  margin-top: 0;
+}
+
+/**
+ * Layout
+ */
+
+.layout {
+  /* margin: 0 auto;
+  width: 95%; */
+  padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+}
+
+.flex {
+  --justifyContent: space-between;
+  display: block;
+  justify-content: var(--justifyContent);
+  flex-wrap: wrap;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 40em;
+  grid-gap: 20px;
+  row-gap: 20px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  grid-gap: 20px;
+}
+
+/**
+ * Media Queries
+ */
+
+@media only screen and (min-width: 500px) {
+  :root {
+    --baseFontSize: 112.5%;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/**
+ * A Dark Mode
+ */
+
+.dark {
+  --darkGrey: #222;
+  --cardBg: var(--darkGrey);
+  --softBrown: var(--darkGrey);
+  --background: var(--black);
+  --line: 1px solid var(--softYellow);
+  --secondaryButtonTextColor: var(--softYellow);
+  --tertiaryButtonTextColor: var(--softYellow);
+  --textColor: var(--softYellow);
+  --headerBackground: var(--darkBlue);
+  --buttonTextColor: var(--black);
+  --footerBackground: var(--darkGrey);
+  --headerBackground: var(--darkGrey);
+  --darkBlue: var(--softYellow);
+}
